@@ -1,12 +1,16 @@
-// pages/home.tsx
-import Header from '../components/Header';
+import React from 'react';
+import Card from '../components/common/Card';
 
-export default function Home() {
+const HomePage: React.FC = () => {
   return (
     <div>
-      <Header />
-      <h1>Welcome to the Home Page</h1>
-      <p>This is the home page of your Next.js project.</p>
+      <h1>Welcome to Home Page</h1>
+
+      <Card title="Card 1" content="This is the first card." />
+      <Card title="Card 2" content="This is the second card." />
+      <Card title="Card 3" content="This is the third card." />
     </div>
   );
-}
+};
+
+export default HomePage;
