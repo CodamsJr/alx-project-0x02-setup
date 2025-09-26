@@ -1,12 +1,18 @@
-// pages/about.tsx
-import Header from '../components/Header';
+import React from 'react';
+import Button from '../components/common/Button';
 
-export default function About() {
+const AboutPage: React.FC = () => {
   return (
     <div>
-      <Header />
-      <h1>About Us</h1>
-      <p>This is the about page of your Next.js project.</p>
+      <h1>About Page</h1>
+
+      <div style={{ display: 'flex', gap: '1rem' }}>
+        <Button size="small" shape="rounded-sm">Small Rounded</Button>
+        <Button size="medium" shape="rounded-md">Medium Rounded</Button>
+        <Button size="large" shape="rounded-full">Large Rounded</Button>
+      </div>
     </div>
   );
-}
+};
+
+export default AboutPage;
