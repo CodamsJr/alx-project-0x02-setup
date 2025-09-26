@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import UserCard from '../components/common/UserCard';
 import { UserProps } from '../interfaces';
 
-const UsersPage: React.FC = () => {
-  const [users, setUsers] = useState<UserProps[]>([]);
+interface UsersPageProps {
+  users: UserProps[];
+}
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const response = await fetch('https://jsonplaceholder.typicode.com/users');
-      const data = await response.json();
-      setUsers(data);
-    };
-
-    fetchUsers();
-  }, []);
-
+const UsersPage: React.FC<UsersPageProps> = ({ users }) => {
   return (
     <div>
       <h1>Users</h1>
@@ -23,6 +15,18 @@ const UsersPage: React.FC = () => {
       ))}
     </div>
   );
+};
+
+// Next.js data fetching
+export const getStaticProps = async () => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/users');
+  const users: UserProps[] = await response.json();
+
+  return {
+    props: {
+      users,
+    },
+  };
 };
 
 export default UsersPage;
