@@ -7,7 +7,7 @@ const Header: React.FC = () => {
       <nav>
         <ul style={{ display: 'flex', gap: '1rem', listStyle: 'none' }}>
           <li>
-            <Link href="/">Home</Link>
+            <Link href="/home">Home</Link> {/* <-- Must point to /home */}
           </li>
           <li>
             <Link href="/about">About</Link>
