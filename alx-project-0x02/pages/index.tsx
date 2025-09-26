@@ -1,10 +1,12 @@
-import React from "react";
+import Header from "../components/layout/Header";
 
 export default function Home() {
   return (
-    <main style={{ padding: "2rem", fontFamily: "Arial, sans-serif" }}>
-      <h1>Welcome to Next.js íº€</h1>
-      <p>If you see this, your setup is working correctly with TypeScript!</p>
-    </main>
+    <div>
+      <Header />
+      <main className="p-8 text-center">
+        <h1 className="text-3xl font-bold">Welcome to ALX Project 0x02 íº€</h1>
+      </main>
+    </div>
   );
 }
