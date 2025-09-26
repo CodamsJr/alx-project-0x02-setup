@@ -1,31 +1,36 @@
 import React from 'react';
-import { ButtonProps } from '../../interfaces';
+import { type ButtonProps } from '@/interfaces';
 
-const Button: React.FC<ButtonProps> = ({
-  size = 'medium',
-  shape = 'rounded-md',
-  children,
-  onClick,
-}) => {
-  // Size classes
-  const sizeClasses = {
-    small: 'px-2 py-1 text-sm',
-    medium: 'px-4 py-2 text-base',
-    large: 'px-6 py-3 text-lg',
-  };
-
-  // Shape classes
-  const shapeClasses = {
-    'rounded-sm': 'rounded-sm',
-    'rounded-md': 'rounded-md',
-    'rounded-full': 'rounded-full',
-  };
-
-  const className = `bg-blue-500 text-white ${sizeClasses[size]} ${shapeClasses[shape]}`;
+const Button: React.FC<ButtonProps> = ({ size, shape, label, onClick }) => {
+  let padding = '';
+  switch (size) {
+    case 'small':
+      padding = '0.25rem 0.5rem';
+      break;
+    case 'medium':
+      padding = '0.5rem 1rem';
+      break;
+    case 'large':
+      padding = '0.75rem 1.5rem';
+      break;
+  }
 
   return (
-    <button className={className} onClick={onClick}>
-      {children}
+    <button
+      onClick={onClick}
+      style={{
+        padding,
+        borderRadius:
+          shape === 'rounded-sm'
+            ? '0.125rem'
+            : shape === 'rounded-md'
+            ? '0.375rem'
+            : '9999px',
+        border: '1px solid #333',
+        cursor: 'pointer',
+      }}
+    >
+      {label}
     </button>
   );
 };
